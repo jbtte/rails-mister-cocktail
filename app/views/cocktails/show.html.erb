@@ -7,20 +7,36 @@
     <% end %>
   </div>
   <div class="container">
-    <div class="card card-cocktail">
-      <h1><%= @cocktail.name %></h1>
-      <ul>
-        <% @cocktail.doses.all.each do |dose| %>
-        <li>
-          <%= dose.description %> - <%= dose.ingredient.name %> -
-          <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
-          <i class="fas fa-trash"></i>
-          <% end %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-    <div id="show-link">
-      <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail)  %>
+    <div class="row d-flex justify-content-center">
+      <div class="col-4 ">
+        <div class="card card-cocktail">
+          <h1><%= @cocktail.name %></h1>
+          <ul>
+            <% @cocktail.doses.all.each do |dose| %>
+            <li>
+              <%= dose.description %> - <%= dose.ingredient.name %> -
+              <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fas fa-trash"></i>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="container mt-5">
+          <div class="card card-dose">
+            <div class="dose-title">
+              <h5>Add a dose</h5>
+            </div>
+            <div class="form-group">
+              <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+              <%= f.input :description, class:"form-control" %>
+              <%= f.association :ingredient, class:"form-control" %>
+              <%= f.button :submit %>
+              <% end %>
+            </div>
+        </div>
+      </div>
     </div>
   </div>
