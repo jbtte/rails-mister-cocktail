@@ -32,6 +32,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Cloudinary
 gem 'cloudinary', '~>1.16.0'
 
+# select2
+gem 'select2-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

@@ -32,7 +32,7 @@
             <div class="form-group">
               <%= simple_form_for [ @cocktail, @dose ] do |f| %>
               <%= f.input :description, class:"form-control" %>
-              <%= f.association :ingredient, class:"form-control" %>
+              <%= f.association :ingredient, input_html: {class:"select2"} %>
               <%= f.button :submit %>
               <% end %>
             </div>
