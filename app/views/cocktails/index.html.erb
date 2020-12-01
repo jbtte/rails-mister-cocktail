@@ -5,8 +5,8 @@
         <% @cocktails.each do |cocktail| %>
           <%= link_to cocktail_path(cocktail) do %>
             <div class="card card-index bg-dark text-white">
-              <% if cocktail.photo_path %>
-                <%= image_tag(cocktail.photo_path) %>
+              <% if cocktail.photo.attached? %>
+                <%= cl_image_tag cocktail.photo.key %>
               <% else %>
                 <%= image_tag('frozen.jpg') %>
 
