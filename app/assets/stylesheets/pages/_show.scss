@@ -1,0 +1,36 @@
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  top: -50px;
+  z-index: -1;
+}
+
+.card-cocktail {
+  padding: 30px 0px 0px 20px;
+  border-radius: 20px;
+  position: relative;
+  top: -100px;
+  margin: 20px;
+  width: 320px;
+  min-height: 230px;
+}
+
+#show-link {
+  position: relative;
+  top: -100px;
+}
+
+.dose-bg{
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url('bottles.jpeg');
+}

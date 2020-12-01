@@ -5,11 +5,12 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
+
+    session[:return_to] ||= request.referer
   end
 
   def new
     @cocktail = Cocktail.new
-    @dose = Dose.new
   end
 
   def create

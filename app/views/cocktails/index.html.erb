@@ -1,15 +1,22 @@
-<div class="container">
-  <div class="">
-    <h1>All our Cocktails</h1>
-  </div>
-  <div>
-    <ul>
-      <% @cocktails.each do |cocktail| %>
-      <li><%= link_to cocktail.name, cocktail_path(cocktail)  %></li>
-      <% end %>
-    </ul>
-  </div>
+<div class="index-body">
+  <%= render partial: "navbar" %>
+  <div class="container mt-5">
+    <div class="d-flex flex-wrap">
+        <% @cocktails.each do |cocktail| %>
+          <%= link_to cocktail_path(cocktail) do %>
+            <div class="card card-index bg-dark text-white">
+              <% if cocktail.photo_path %>
+                <%= image_tag(cocktail.photo_path) %>
+              <% else %>
+                <%= image_tag('frozen.jpg') %>
 
-  <%= link_to "Create your Cocktail", new_cocktail_path  %>
-
+              <% end %>
+              <div class="card-img-overlay">
+                <h5 class="card-title"><%= cocktail.name %></h5>
+              </div>
+          <% end %>
+        </div>
+        <% end %>
+    </div>
+  </div>
 </div>

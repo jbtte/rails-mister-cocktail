@@ -1,12 +1,17 @@
-<div class="container">
-  <div>
-    <h1>Create your own drink</h1>
-  </div>
-  <div>
-    <%= simple_form_for  @cocktail do |f| %>
+<%= render partial: "navbar" %>
+<div class="card-category new-bg">
+.</div>
+<div class="container mt-5">
+  <div class="card card-new p-5">
+    <div>
+      <h1>Create your own drink</h1>
+    </div>
+    <div>
+      <%= simple_form_for  @cocktail do |f| %>
       <%= f.input :name %>
       <%= f.button :submit %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
 </div>

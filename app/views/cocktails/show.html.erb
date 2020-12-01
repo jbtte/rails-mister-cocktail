@@ -1,12 +1,21 @@
-<div class="container">
-  <h1><%= @cocktail.name %></h1>
-  <ul>
-    <% @cocktail.doses.all.each do |dose| %>
-      <li>
-        <%= dose.description %> - <%= dose.ingredient.name %>
-      </li>
-    <% end %>
-  </ul>
-
-  <%= link_to "Back home", cocktails_path  %>
-</div>
+  <%= render partial: "navbar" %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'cups.jpeg' %>)">
+  .</div>
+  <div class="container">
+    <div class="card card-cocktail">
+      <h1><%= @cocktail.name %></h1>
+      <ul>
+        <% @cocktail.doses.all.each do |dose| %>
+        <li>
+          <%= dose.description %> - <%= dose.ingredient.name %> -
+          <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="fas fa-trash"></i>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div id="show-link">
+      <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail)  %>
+    </div>
+  </div>
